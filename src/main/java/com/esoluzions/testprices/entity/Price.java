@@ -21,7 +21,7 @@ public class Price {
     private Long id;
 
     @Column(name = "BRAND_ID")
-    private long brandId;
+    private Long brandId;
 
     @Column(name = "START_DATE")
     @Temporal(value = TemporalType.TIMESTAMP)
@@ -32,13 +32,13 @@ public class Price {
     private Date endDate;
 
     @Column(name = "PRICE_LIST")
-    private long priceList;
+    private Long priceList;
 
     @Column(name = "PRODUCT_ID")
-    private long productId;
+    private Long productId;
 
     @Column(name = "PRIORITY")
-    private long priority;
+    private Long priority;
 
     @Column(name = "PRICE")
     private BigInteger price;
