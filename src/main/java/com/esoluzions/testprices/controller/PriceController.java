@@ -3,13 +3,12 @@ package com.esoluzions.testprices.controller;
 import com.esoluzions.testprices.entity.Price;
 import com.esoluzions.testprices.service.PriceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -21,8 +20,8 @@ public class PriceController {
     @GetMapping()
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody
-    public List<Price> findAll() {
-        List prices = priceService.findAll();
+    public List<Price> findAll(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+        List prices = priceService.findAllByDate(date);
         return prices;
     }
 }
